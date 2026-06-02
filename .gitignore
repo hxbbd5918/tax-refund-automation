@@ -1,0 +1,32 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+
+# Chrome user profile (contains login cookies/credentials)
+.chrome-profile-tax/
+
+# Runtime data
+logs/
+state/
+*.log
+
+# Business data (sensitive Excel files)
+已处理/
+待处理/
+
+# Local configuration overrides
+local.config.json
+
+# Claude Code local settings & memory
+.claude/
+memory/
+
+# OS / Editor
+Thumbs.db
+.DS_Store
+*.swp
+.idea/
+.vscode/

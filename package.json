@@ -1,0 +1,59 @@
+{
+  "name": "tax-refund-automation",
+  "version": "1.0.0",
+  "author": "Tax Refund Team",
+  "private": true,
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --dev",
+    "inspect": "node tax_refund_matcher.js --inspect",
+    "check-excel": "node tax_refund_excel.js"
+  },
+  "dependencies": {
+    "playwright": "^1.59.1",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "electron": "^42.0.1",
+    "electron-builder": "^26.8.1"
+  },
+  "build": {
+    "appId": "com.taxrefund.automation",
+    "productName": "出口退税自动化工具",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "ui/**/*",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "tax_refund_matcher.js",
+        "to": "scripts/tax_refund_matcher.js"
+      },
+      {
+        "from": "tax_refund_excel.js",
+        "to": "scripts/tax_refund_excel.js"
+      },
+      {
+        "from": "config.js",
+        "to": "scripts/config.js"
+      }
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "portable",
+          "arch": ["x64"]
+        }
+      ]
+    },
+    "portable": {
+      "artifactName": "tax-refund-automation.exe"
+    }
+  }
+}
